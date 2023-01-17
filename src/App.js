@@ -1,38 +1,22 @@
-
-
-
 import React from "react";
 import "./styles/App.css";
+import Die from "./components/Die"
 
-function App() {
-
-    const [questions, setQuestions] = React.useState();
-
-    React.useEffect(() => {
-      fetch("https://opentdb.com/api.php?amount=5&category=18")
-      .then(res => res.json())
-      .then(data => setQuestions(data))
-    }, [])
-    
-    console.log("hello")    
-    console.log("hello")    
-
-    // questions.results.map(result => {
-    //     console.log(result.question)
-    // })
-    let result = null;
-    if(questions){
-      result = questions.results;
-    }
-
-    console.log("Hesllo")
-    console.log(result)
-
+export default function App() {
     return (
-        <main className="quiz-container">
-            
+        <main>
+            <div className="dice-container">
+                <Die value="1" />
+                <Die value="2" />
+                <Die value="3" />
+                <Die value="4" />
+                <Die value="5" />
+                <Die value="6" />
+                <Die value="1" />
+                <Die value="1" />
+                <Die value="1" />
+                <Die value="1" />
+            </div>
         </main>
-    );
+    )
 }
-
-export default App;
