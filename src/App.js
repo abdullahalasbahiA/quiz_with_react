@@ -6,9 +6,30 @@ import PlayAgainButton from "./PlayAgainButton";
 
 function App(){
     
+
+    // {
+    //     "category": "Science: Computers",
+    //     "type": "multiple",
+    //     "difficulty": "medium",
+    //     "question": "What was the first Android version specifically optimized for tablets?",
+    //     "correct_answer": "Honeycomb",
+    //     "incorrect_answers": [
+    //         "Eclair",
+    //         "Froyo",
+    //         "Marshmellow"
+    //     ]
+    // }
+
     const [questions, setQuestions] = React.useState();
     // const [startingQuiz, setStartingQuiz] = React.useState(true);
     
+    console.log(questions)
+
+    let answersPlaceHolder = questions.map(q => "");
+    console.log(answersPlaceHolder)
+    function choosenAnswersInChild(){
+
+    }
     
     React.useEffect(function() {
         fetch("https://opentdb.com/api.php?amount=5&category=18")
@@ -16,13 +37,18 @@ function App(){
         .then(data => setQuestions(data.results))
     }, [])
     
+    let correctAnswers = [];
+    if(questions){
+        correctAnswers = questions.map((question) => question.correct_answer);
+        console.log(correctAnswers);
+    }
+    
     return (
         <main>
         <div className="quiz-welcome-screen">
-            {/*<pre>{JSON.stringify(questions, null, 4)}</pre>*/}
+            <pre>{JSON.stringify(questions, null, 4)}</pre>
             {/* If there is Any (questions) && Do what you have to do */}
             {questions && questions.map(function(result) { // MAP MAP MAP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
                 const answersArray = []; // empty array to but all the answers in
                 const correctAnswer = result.correct_answer; // correct answers in a constant
                 const incorrectAnswersArray = result.incorrect_answers; // the array of incorrect answers
@@ -32,13 +58,12 @@ function App(){
                 return (
                     <div className="container">
                         <div key={Math.random()} className="question">{result.question}</div>
-                        <Answer key={Math.random()} answersArray={answersArray}/>
+                        <Answer correctAnswers={correctAnswers} key={Math.random()} answersArray={answersArray}/>
                     </div>
                     )
                 })}
                 <PlayAgainButton />
             </div>
-            
         </main>
     )
 }
