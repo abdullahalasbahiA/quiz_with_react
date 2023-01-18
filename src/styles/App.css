@@ -4,40 +4,108 @@
 
 body {
     margin: 0;
-    background-color: #0B2434;
-    padding: 20px;
+    padding: 0;
+    font-family: 'Karla', sans-serif;
+    background-color: whitesmoke;
 }
 
-main {
-    background-color: #F5F5F5;
-    height: 400px;
-    max-width: 800px;
-    border-radius: 5px;
-    padding: 20px;
+.quiz-welcome-screen {
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: whitesmoke;
+    color: #293264;
 }
 
-.dice-container {
-    display: grid;
-    grid-template: auto auto / repeat(5, 1fr);
-    gap: 20px;
+.quiz-welcome-screen span {
+    font-weight: 600;
 }
 
-.die-face {
-    height: 50px;
-    width: 50px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
+.container{
+    width: 90%;
+    margin: auto
+}
+
+.control-container{
+    background: black;
+    margin: auto;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    cursor: pointer;
-    background-color: white;
 }
 
-.die-num {
-    font-size: 2rem;
+.control-container span {
+    margin-right: 10px;
+    cursor: pointer;
 }
+
+.start-quiz,.check-answers {
+    margin: 30px;
+    display: inline-block;
+    margin-right: auto;
+    cursor: pointer;
+    background-color: #4D5B9E;
+    border: none;
+    border-radius: 15px;
+    padding: 1rem;
+    width: 200px;
+    height: 50px;
+    /* Text Styles */
+    color: #F5F7FB;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.check-answers{
+    margin-right: auto;
+}
+
+.question-container{
+    width: 90%;
+    margin: auto;
+    background: black;
+    color: white;
+}
+
+.quiz-welcome-screen button{
+    margin: auto;
+}
+
+.question{
+    font-weight: bold;
+    margin: 10px;
+}
+
+.answers{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DBDEF0;
+}
+
+.answers span{
+    border: 1px solid #4D5B9E;
+    padding: 4px 25px;
+    border-radius: 10px;
+    font-weight: 100;
+    font-size: 0.9rem;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.answers span:hover{
+    border: 1px solid #D6DBF5;
+    background: #D6DBF5;
+    border: none
+}
+
+
+
+
+
+
+
+
